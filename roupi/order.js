@@ -9,7 +9,7 @@ export const useCreateOrder = (id) => {
   const [order, setOrder] = useState({
     packID: null,
     shippingID: null,
-    productID:id,
+    productID: id,
     quantity: 1,
   });
   const submit = (e, data, hasPacks) => {
@@ -56,7 +56,7 @@ export const useCreateOrder = (id) => {
       });
       return;
     }
-    usePOST("individual-seller/order/create/", {
+    usePOST("one-seller/order/create/", {
       data: { ...data, ...order },
       headers: {
         "X-Comercify-Visitor": trackID,

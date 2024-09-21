@@ -43,7 +43,7 @@ const Choice = ({ image, title, currentPack, addPackID, id }) => {
               Active: "border", Not Active: "border-2"
               Checked: "border-indigo-500", Not Checked: "border-transparent"
         --> */}
-        <Image
+        <img
           src={MEDIA_URL + image?.replace("/media/", "")}
           width={60}
           height={60}
@@ -119,7 +119,6 @@ export const ProductChoices = ({ packs, packID, addPackID }) => {
       <fieldset className="mt-4">
         <div className="flex flex-wrap gap-4 w-full">
           {/* <!-- Active: "ring-2 ring-indigo-500" --> */}
-          <NotAvialableChoice />
           {packs?.map((pack) => (
             <Choice
               key={pack.id}
@@ -158,7 +157,7 @@ export const ProductDetailsCard = ({
             </h1>
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex justify-between flex-col">
             <div className="mt-4 tracking-tight flex text-gray-900">
               <p className="flex text-3xl font-bold text-gray-900">
                 {discount ? acctualPrice.toFixed(2) : price}

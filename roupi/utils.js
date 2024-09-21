@@ -1,13 +1,13 @@
 import { URL as API_URL } from "@/urls";
-import {token} from "@/token"
-
+import { token } from "@/token";
 
 export const useGET = async (url, conf) => {
   const get = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      "X-Comercify-Individual-Seller": token
+      //"X-Comercify-Owner": token,
+      "X-Comercify-Visitor": localStorage.getItem("trackID"),
     },
   };
   if (conf?.headers) get.headers = { ...get.headers, ...conf.headers };
@@ -43,7 +43,8 @@ export const usePOST = async (url, conf) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "X-Comercify-Individual-Seller": token
+      //"X-Comercify-Owner": token,
+      "X-Comercify-Visitor": localStorage.getItem("trackID"),
     },
     body: "",
   };

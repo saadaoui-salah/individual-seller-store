@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="text-center md:text-left">
           <div
             style={{
-              "background-color": "rgba(255, 255, 255, 0.15)",
+              "backgroundColor": "rgba(255, 255, 255, 0.15)",
               border: "1px solid rgba(255, 255, 255, 0.15)",
             }}
             className="px-4 py-2 bg-white rounded-md"
@@ -15,8 +15,8 @@ const Footer = () => {
             <h2
               style={{
                 background: "-webkit-linear-gradient(45deg,  #f72585, #7209b7)",
-                "-webkit-background-clip": "text",
-                "-webkit-text-fill-color": "transparent",
+                "WebkitBackgroundClip": "text",
+                "WebkitTextFillColor": "transparent",
               }}
               className="text-3xl font-bold"
             >

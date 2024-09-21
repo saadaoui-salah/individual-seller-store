@@ -17,7 +17,7 @@ const ProductCard = ({ id, title, price, image, discount }) => {
     <Link href={`/products/${id}`}>
       <div className="w-52 border border-gray-200 rounded relative overflow-hidden hover:shadow-sm">
         <div className="overflow-hidden">
-          <Image
+          <img
             width={600}
             height={600}
             src={MEDIA_URL + image?.replace("/media/", "")}

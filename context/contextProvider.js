@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { PushNotification } from "@/comps/PushNotification";
-import { useInitTracker } from "@/roupi/tracker";
+import { useGET } from "@/roupi/utils";
 export const StateContext = createContext();
 
 export const ContextProvider = ({ children }) => {
@@ -13,9 +13,21 @@ export const ContextProvider = ({ children }) => {
     type: null,
     message: null,
   });
+
   useEffect(() => {
-    if (!trackID) useInitTracker();
-  }, [trackID]);
+    if (localStorage?.getItem("trackID")) {
+      setTrackID(localStorage?.getItem("trackID"));
+    }
+    if (!localStorage?.getItem("trackID")) {
+      useGET("tracking/init/").then((res) => {
+        if (res.type == "success") {
+          setTrackID(res.data);
+          localStorage.setItem("trackID", res.data);
+        }
+      });
+    }
+  }, []);
+
   const [cron, setCron] = useState(false);
   const handleNotification = ({ type, message }) => {
     setNotifiction({ type: type, message: message });
